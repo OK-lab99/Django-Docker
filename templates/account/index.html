@@ -1,0 +1,92 @@
+{% extends 'account/base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="container">    
+    <div class="p-4 p-md-5 mb-4 rounded bg-warning">
+        <div class="col-md-6 px-0">
+            <h1 class="display-4 font-italic">質問箱</h1>
+            <p class="lead my-3">勉強をしている中で分からない問題を投稿しよう</p>
+            <p class="lead mb-0">
+                <a href="/blog/post/" class="font-weight-bold">質問する</a>
+            </p>
+        </div>
+    </div>
+    <div class="row mb-2">
+         {% for obj in ranks %}
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 
+            shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">Django</strong>
+                <h3 class="mb-0">{{ obj.title }}</h3>
+                <div class="mb-1 text-muted">{{ obj.created_at }}</div>
+                <p class="card-text mb-auto">{{ obj.text }}</p>
+                <a href="/blog/{{ obj.id }}/" class="stretched-link">続きを読む</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+</div>
+<main class="container">
+    <div class="row">
+    
+        <div class="col-md-12">
+            
+            <div class="pb-4 font-italic border-bottom">
+            <nav class="nav d-flex justify-content-end">
+                <h3 class="p-2 flex-grow-1 bd-highlight">新しい問題</h3>
+                <a class="p-2 link-secondary" href="/blog/tags/国語">国語</a>
+                <a class="p-2 link-secondary" href="/blog/tags/数学">数学</a>
+                <a class="p-2 link-secondary" href="/blog/tags/英語">英語</a>
+                <a class="p-2 link-secondary" href="/blog/tags/理科">理科</a>
+                <a class="p-2 link-secondary" href="/blog/tags/社会">社会</a>
+                <a class="p-2 link-secondary" href="/blog/tags/その他">その他</a>
+                </nav>
+            </div>
+           </div>
+           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for objs in articles %}
+    
+        
+      
+            
+            <div class="col">
+                
+              <div class="card shadow-sm">
+                    {% if objs.image %}
+                    <img src="{{objs.image.url}}" class="img-fluid">
+                    {% else %}
+                    <img src="{% static 'account/default.jpg' %}" class="img-fluid">
+                    {% endif %}
+                
+              
+                <div class="card-body">
+        
+                  <p class="card-text"></p>
+                  
+                  <div class="d-flex justify-content-between align-items-center">
+                    
+        
+                    
+                      <a href='/blog/{{objs.id}}/' class="">続きはこちら</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+    
+    {% endfor %}
+    </div>
+            
+            <nav class="blog-pagination">
+                <a class="btn btn-outline-primary" href="/blog/">問題一覧はこちら</a>
+            </nav>
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}

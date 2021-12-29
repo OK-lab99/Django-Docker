@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+
+<html lang="ja" dir="ltr">
+<head>
+<title>質問箱</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+</head>
+
+<body>
+<div id="header">
+    <div id="branding">
+        <h1><a href="/">質問箱</a></h1>
+    </div>
+</div>
+    
+<div>
+    <div>
+        <div>
+            <h1></h1>
+            <div>
+                <form class="row g-3" method="POST" enctype="multipart/form-data">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    
+ 
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">送信</button>
+                    </div>
+                </form>
+  
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

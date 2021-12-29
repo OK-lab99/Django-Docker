@@ -1,0 +1,33 @@
+{% extends 'account/base.html' %}
+
+{% block content %}
+{% load static %}
+
+{{form.user}}
+{{comments.user}}
+<main class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="pb-4 font-italic border-bottom">
+                {% if article.image %}
+                <img src="{{article.image.url}}" class="img-fluid">
+                {% else %}
+                <img src="{% static 'account/default.jpg' %}" class="img-fluid">
+                {% endif %} 
+            </h3>
+            <p class="small text-muted text-right">{{article.created_at}} {{article.author}}</p>
+            <p>{{article.text}}</p>
+
+            
+            
+            {% include 'account/snippets/tags.html' %}
+            
+            <hr class="my-4">
+            {% include 'account/snippets/comment.html' %}
+            
+        </div>
+    
+    </div>
+</main>
+
+{% endblock %}

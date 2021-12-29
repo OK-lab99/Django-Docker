@@ -1,0 +1,44 @@
+<div>
+    <h3 class="h6">コメント</h3>
+    <div class="list-group">
+    {% for comment in comments %}
+         <a class="list-group-item list-group-item-action p-3 rounded-0">
+          <p class="m-0"><small>{{comment.comment}}</small></p>
+          <p class="m-0">
+               <small>
+                   {{comment.user.profile.username}}さん
+                   {{comment.created_at}}
+               </small>
+               </p>
+          <p class="m-0">{% if comment.image %}
+               <img src="{{comment.image.url}}">
+               {% endif %}</p>
+
+         </a>   
+   {% endfor %}
+   </div>
+
+{% if user.is_authenticated %}
+<div class="container">
+    <form method="POST" class="my-4" enctype="multipart/form-data">
+     {{form.as_p}}
+     {% csrf_token %}
+          
+               <button class="btn btn-sm btn-outline-success" type="submit">
+               コメントする
+               </button>
+          </div>
+     </form>
+</div>    
+               
+
+ </div>
+    {% else %}
+    <p class="my-4">
+    コメントを投稿するには<a href="/login/">ログイン</a>してください。
+    </p>
+    {% endif %}
+</div>
+
+
+
