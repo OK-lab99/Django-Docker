@@ -4,5 +4,5 @@ urlpatterns = [
     path('',views.index),
     path('tags/<str:name>/', views.tags),
     path('<int:pk>/',views.article),
-    path('post/', views.posts)
+    path('post/', views.posts),
 ]

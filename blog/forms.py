@@ -20,8 +20,3 @@ class PostForm(forms.ModelForm):
             'tags',
             'image',
         )
-        labels = {
-            'text':'コメント',
-            'tags':'教科',
-            'image':'写真',
-        }

@@ -5,40 +5,33 @@
 <main class="container">
     <div class="row">
         <div class="col-md-8">
-        <h3 class="pb-4 mb-4 font-italic border-bottom">
-            マイページ
+          <h3 class="pb-4 mb-4 font-italic border-bottom">
+            <a href="/view_mypage/" class="text-decoration-none">
+            マイページ</a>
         </h3>
  
-        <form class="row g-3" method="POST">
+        <form class="row g-3" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="col-12">
-                <label class="form-label">ニックネーム</label>
-                <input type="text" class="form-control" id="id_username" name="username" 
-                placeholder="煉獄 杏寿郎" value="{{ user.profile.username }}">
-              </div>
- 
-              <div class="col-md-2">
-                <label class="form-label">郵便番号</label>
-                <input type="text" class="form-control" id="id_zipcode" 
-                name="zipcode" value="{{ user.profile.zipcode }}">
-              </div>
-              <div class="col-md-4">
-                <label class="form-label">都道府県</label>
-                <select id="id_prefecture" name="prefecture" class="form-select">
-                  <option selected>選択...</option>
-                  <option>...</option>
-                </select>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">市区</label>
-                <input type="text" class="form-control" id="id_city" name="city"
-                value="{{ user.profile.city }}">
-              </div>
-              
-            <div class="col-12">
-              <label class="form-label">住所</label>
-              <input type="text" class="form-control" id="id_address" 
-              name="address" placeholder="" value="{{ user.profile.address }}">
+            <div class="form-group">
+                <label>ニックネーム:</label>{{ form.username }}
+            </div>
+            </div>
+            <div class="col-md-6">
+                    <div class="form-group">
+                      <label>アイコン:</label>{{ form.image }}
+                    </div>
+            </div>
+            <div class="col-md-12">
+                    <div class="form-group">
+                      <label>年齢:</label> {{ form.age }}
+                    </div>
+            </div>            
+            <div class="col-md-12">
+                <label>一言コメント</label>
+                <div class="form-group">
+                {{ form.text }}
+                </div>
             </div>
  
             <div class="col-12">

@@ -13,6 +13,7 @@ urlpatterns = [
     path('blog/',include('blog.urls')),
     path('signup/',views.signup),
     path('mypage/',views.mypage),
+    path('view_mypage/',views.view_mypage),
     path('contact/',views.contact),
     path('explain/',views.explain),
 ]

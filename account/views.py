@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from account.models import Profile
 from blog.models import Article
 from django.contrib.auth.views import LoginView 
 from account.forms import UserCreationForm, ProfileForm
@@ -45,13 +46,25 @@ def signup(request):
 def mypage(request):
     context = {}
     if request.method == "POST":
-        form = ProfileForm(request.POST)
+        form = ProfileForm(request.POST, request.FILES)
         if form.is_valid():
             profile = form.save(commit=False)
             profile.user = request.user
             profile.save()
             messages.success(request, '更新完了しました')
+            return redirect('/view_mypage/')
+    else:
+        form = ProfileForm()
+    context['form'] = form
     return render(request, 'account/mypage.html', context)
+
+@login_required
+def view_mypage(request):
+    profile = Profile.objects.all()
+    context = {
+        'profile':profile
+    }
+    return render(request, 'account/view_mypage.html', context)
 
 def contact(request):
     context = {}

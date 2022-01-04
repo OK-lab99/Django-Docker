@@ -1,0 +1,51 @@
+{% extends 'account/base.html' %}
+
+{% block content %}
+{% load static %}
+<main class="container">
+    <div class="row">
+        <div class="col-md-8">
+        <h3 class="pb-4 mb-4 font-italic border-bottom">
+            <a href="/view_mypage/" class="text-decoration-none">
+            マイページ</a>
+        </h3>
+        <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-2">
+                {% if user.profile.image %}
+                <img src="{{ user.profile.image.url }}" class="img-fluid">
+                {% else %}
+                <img src="{% static 'account/person.jpg' %}" 
+                class="rounded-circle">
+                {% endif %}
+                <p class="small text-muted text-center">
+                    {% if user.profile.username %}{{ user.profile.username }}
+                    {% else %}
+                    匿名ユーザー
+                    {% endif %}
+                    {% if user.profile.age %}age:{{ user.profile.age }}
+                    {% else %}
+                    age:??
+                    {% endif %}
+                </p>
+                <p>{% if user.profile.text %}{{ user.profile.text }}
+                    {% else %}
+                    よろしくお願いします。
+                    {% endif %}</p>
+            </div>
+            
+        <a class="btn btn-outline-info" href="/mypage/">編集する</a>
+        
+        <a class="btn btn-outline-danger" href="/blog/post/">質問する</a>
+        
+   
+        </div>
+       
+        </div>
+        </div>
+        
+    </div>
+    
+</main>
+
+{% endblock %}

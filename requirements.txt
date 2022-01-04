@@ -3,3 +3,7 @@ psycopg2
 uwsgi
 PYyaml
 Pillow
+django-heroku
+dj-database-url
+whitenoise
+gunicorn

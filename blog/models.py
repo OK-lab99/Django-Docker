@@ -12,7 +12,7 @@ class Tag(models.Model):
         ('社会', '社会'),
         ('その他', 'その他'),
     )
-    name = models.CharField(max_length=30, choices=CATEGORY)
+    name = models.CharField(max_length=10, choices=CATEGORY)
     
     def __str__(self):
         return self.name 
@@ -21,7 +21,7 @@ class Article(models.Model):
     
     text = models.TextField(default='')
     
-    author = models.CharField(default='',max_length=30)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     
     created_at = models.DateField(auto_now_add=True)
     
@@ -32,6 +32,9 @@ class Article(models.Model):
     tags = models.ManyToManyField(Tag, blank=True)
 
     image = models.ImageField(upload_to='problem', null=True, blank=True)
+
+    able = models.BooleanField(default=False)
+
                                 
 class Comment(models.Model):
     comment = models.TextField(default='', max_length=500)
@@ -43,9 +46,6 @@ class Comment(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
 
     image = models.ImageField(upload_to='answer', null=True, blank=True)
-
-class Image(models.Model): 
-    image = models.ImageField(verbose_name='問題', upload_to='images', null=True, blank=True)
 
     
     

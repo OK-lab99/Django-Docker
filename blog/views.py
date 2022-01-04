@@ -76,10 +76,13 @@ def posts(request):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            question = form.save(commit=False)
+            question.user = request.user
+            question.save()
             messages.success(request, '質問できました')
             return redirect('/')
     else:
         form = PostForm()
-    context['form'] = form    
+    context['form'] = form
+   
     return render(request, 'blog/post.html', context)

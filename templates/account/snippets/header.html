@@ -9,7 +9,7 @@
                     
                     <div class="row flex-nowrap justify-content-center align-item-center">
                     <h1 class="display-4 font-italic"><a href="/" class="text-decoration-none">
-                        質問箱</a></h1>
+                        <span style="white-space:nowrap;">質問投稿ナビ</span></a></h1>
                     </div>
                 </div>
             </div>
@@ -19,13 +19,13 @@
     </header>
     <div class="py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
-            <a class="p-2 link-secondary" href="/blog/">ブログ</a>
+            <a class="p-2 link-secondary" href="/blog/">問題一覧</a>
             <a class="p-2 link-secondary" href="/contact/">お問い合わせ</a>
             <a class="p-2 link-secondary" href="/explain/">各機能について</a>
             {% if user.is_authenticated %}
             <div>
              <a href="/logout/" class="link-secondaly">ログアウト</a>
-             <a href="/mypage/" class="link-secondaly">マイページ</a>
+             <a href="/view_mypage/" class="link-secondaly">マイページ</a>
             </div>
              {% else %}
              <div>

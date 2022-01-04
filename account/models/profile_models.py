@@ -1,7 +1,6 @@
 from django.db import models
 from django.db.models.fields.related import OneToOneField
 from django.contrib.auth import get_user_model
-from blog.models import Article
 
 class Profile(models.Model):
     user = OneToOneField(get_user_model(), unique=True, on_delete=models.CASCADE, primary_key=True)
@@ -12,4 +11,4 @@ class Profile(models.Model):
 
     age = models.PositiveSmallIntegerField(blank=True, null=True, default=0)
 
-    text = models.TextField(default='')
+    text = models.TextField(default="")
