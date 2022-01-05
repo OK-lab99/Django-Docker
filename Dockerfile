@@ -7,3 +7,5 @@ ADD requirements.txt /code/
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 ADD . /code/
+
+CMD gunicorn --bind 0.0.0.0:$PORT application.wsgi
