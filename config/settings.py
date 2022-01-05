@@ -174,8 +174,7 @@ EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 
 # --- Gmail 送信設定 --- 
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {
