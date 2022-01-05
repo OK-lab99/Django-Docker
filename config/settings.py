@@ -174,6 +174,16 @@ EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 
 # --- Gmail 送信設定 --- 
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'hupj4bjrh',
+    'API_KEY': '668127817243329'
+    'API_SECRET': 'ZcYu2-8Rh44zkAED93K322OZ0NA',
+}
+
 try:
     from .local_settings import *
 except ImportError:
@@ -186,18 +196,4 @@ if not DEBUG:
 
 db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
 DATABASES['default'].update(db_from_env)
-
-import environ
-
-env = environ.Env()
-env.read_env(os.path.join(BASE_DIR, '.env'))
-
-MEDIA_URL = '/media/'
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': env('CLOUDINARY_NAME'),
-    'API_KEY': env('CLOUDINARY_API_KEY'),
-    'API_SECRET': env('CLOUDINARY_API_SECRET'),
-}
 
