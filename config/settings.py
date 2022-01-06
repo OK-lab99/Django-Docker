@@ -48,8 +48,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'blog',
+    'cloudinary',
+    'cloudinary_storage',
 ]
-#'cloudinary','cloudinary_storage',
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
