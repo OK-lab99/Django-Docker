@@ -7,6 +7,5 @@ django-heroku
 dj-database-url
 whitenoise
 gunicorn
-psycopg2-binary
 cloudinary
 django-cloudinary-storage

@@ -26,6 +26,8 @@ SECRET_KEY = 'django-insecure-@0biaysc0g2f+%sslv-@d=1rpxe&76d6)1c=m@(=pu7-++slss
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+
+
 ALLOWED_HOSTS = ['*']
 
 import yaml
@@ -43,12 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
-    'cloudinary',
     'account',
     'blog',
 ]
+#'cloudinary','cloudinary_storage',
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -182,6 +183,8 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '668127817243329',
     'API_SECRET': 'ZcYu2-8Rh44zkAED93K322OZ0NA',
 }
+
+
 
 try:
     from .local_settings import *
