@@ -2,6 +2,7 @@ FROM python:3
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+ENV DEBUG 0
 RUN mkdir /code
 WORKDIR /code
 ADD requirements.txt /code/
