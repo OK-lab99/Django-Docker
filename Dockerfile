@@ -8,4 +8,3 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 ADD . /code/
 
-CMD gunicorn config.wsgi --log-file -
