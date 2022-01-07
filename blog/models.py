@@ -2,6 +2,7 @@ from typing import Tuple
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.conf import settings
+from cloudinary.models import CloudinaryField
 
 class Tag(models.Model):
     CATEGORY = (
