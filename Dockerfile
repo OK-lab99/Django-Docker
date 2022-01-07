@@ -10,4 +10,4 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 ADD . /code/
 
-CMD gunicorn config.wsgi:application --bind 0.0.0.0:$PORT
+CMD CMD gunicorn --bind 0.0.0.0:$PORT config.wsgi
