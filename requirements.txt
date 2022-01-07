@@ -7,4 +7,4 @@ dj-database-url
 whitenoise
 gunicorn
 cloudinary
-django-cloudinary-storage
+dj3-cloudinary-storage
