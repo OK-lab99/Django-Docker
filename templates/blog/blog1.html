@@ -19,7 +19,7 @@
             
           <div class="card shadow-sm">
                 {% if objs.image %}
-                <img src="{{objs.image.name}}" class="img-fluid">
+                <img src="{{objs.image.url}}" alt="{{ objs.image.name }}"class="img-fluid">
                 {% else %}
                 <img src="{% static 'account/default.jpg' %}" class="img-fluid">
                 {% endif %}
