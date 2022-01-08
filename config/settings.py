@@ -181,9 +181,9 @@ EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 #DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'hzk6wyuxp',
-    'API_KEY': '227733837776263',
-    'API_SECRET': 'rHVULmVtIJ039u1AjwO6ascZ0dM',
+    'CLOUD_NAME': os.environ['CLOUD_NAME'],
+    'API_KEY': os.environ['API_KEY'],
+    'API_SECRET': os.environ['API_SECRET'],
 }
 
 
@@ -200,5 +200,3 @@ if not DEBUG:
 
 db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
 DATABASES['default'].update(db_from_env)
-
-
