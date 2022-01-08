@@ -18,7 +18,7 @@
                 
             <p> {{article.text}}</p>
                 {% if article.image %}
-                <img src="{{ articles.image.url }}" alt="{{ articles.image.name }}" class="img-fluid">
+                <img src="{{ article.image.url }}" alt="{{ article.image.name }}" class="img-fluid">
                 {% else %}
                 <img src="{% static 'account/default.jpg' %}" class="img-fluid">
                 {% endif %} 
