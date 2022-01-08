@@ -10,7 +10,7 @@
                </p>
                <p class="m-0"><small>{{comment.comment}}</small></p>
           <p class="m-0">{% if comment.image %}
-               <img src="{{comment.image.url}}">
+               <img src="{{ comment.image.url }}" alt="{{ comment.image.name }}">
                {% endif %}</p>
           <p class="small text-muted text-right">{{ comment.created_at }} </p>
          </a>
