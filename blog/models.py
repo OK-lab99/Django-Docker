@@ -46,7 +46,7 @@ class Comment(models.Model):
     
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
 
-    image = models.ImageField(upload_to='madia/answer', null=True, blank=True)
+    image = models.ImageField(upload_to='media/answer', null=True, blank=True)
 
     
     
