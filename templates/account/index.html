@@ -58,14 +58,14 @@
                 
               <div class="card shadow-sm">
                     {% if objs.image %}
-                    <img src="{{ objs.image.name }}">
+                    <img src="{{ objs.image.name }}" class="img-fluid">
                     {% else %}
                     <img src="{% static 'account/default.jpg' %}" class="img-fluid">
                     {% endif %}
                 
               
                 <div class="card-body">
-
+        
                   <p class="card-text"></p>
                   
                   <div class="d-flex justify-content-between align-items-center">
