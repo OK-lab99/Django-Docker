@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@0biaysc0g2f+%sslv-@d=1rpxe&76d6)1c=m@(=pu7-++slss'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True###False
+DEBUG = False
 
 
 
@@ -193,7 +193,7 @@ try:
 except ImportError:
     pass
 
-if DEBUG:
+if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku
     django_heroku.settings(locals())
