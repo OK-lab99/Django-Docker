@@ -32,7 +32,7 @@ class Article(models.Model):
     
     tags = models.ManyToManyField(Tag, blank=True)
 
-    image = models.ImageField(upload_to='problem', null=True, blank=True)
+    image = models.ImageField(upload_to='media/problem', null=True, blank=True)
 
     able = models.BooleanField(default=False)
 
@@ -46,7 +46,7 @@ class Comment(models.Model):
     
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
 
-    image = models.ImageField(upload_to='answer', null=True, blank=True)
+    image = models.ImageField(upload_to='madia/answer', null=True, blank=True)
 
     
     

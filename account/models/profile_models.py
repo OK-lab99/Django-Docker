@@ -7,7 +7,7 @@ class Profile(models.Model):
     
     username = models.CharField(default="匿名ユーザー", max_length=30)
 
-    image = models.ImageField(upload_to='account', null=True, blank=True)
+    image = models.ImageField(upload_to='media/account', null=True, blank=True)
 
     age = models.PositiveSmallIntegerField(blank=True, null=True, default=0)
 
