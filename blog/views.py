@@ -15,24 +15,6 @@ def index(request):
     }
     return render(request,'blog/blog1.html', context)
 
-def article11(request, pk):
-    obj = Article.objects.get(pk=pk)
-    if request.method == "POST":
-        if request.POST.get('like_count', None):
-            obj.count += 1
-            obj.save()
-        else:
-            form = CommentForm(request.POST, request.FILES)
-
-    else:
-        form = CommentForm()
-    comments = Comment.objects.filter(article=obj)
-    context = {
-        'article':obj,
-        'comments':comments,
-    }
-    context['form'] = form
-    return render(request,'blog/article.html', context)
 
 def article(request, pk):
     obj = Article.objects.get(pk=pk)
@@ -44,8 +26,12 @@ def article(request, pk):
             answer.user = request.user
             answer.article = obj
             answer.save()
-            messages.success(request, '質問できました')
+            messages.success(request, '回答できました')
             return redirect('/blog/{}/'.format(pk))
+        
+        elif request.POST.get('like_count', None):
+            obj.count += 1
+            obj.save()
     
     else:
         form = CommentForm()
