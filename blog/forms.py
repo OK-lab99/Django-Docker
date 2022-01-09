@@ -14,12 +14,6 @@ class CommentForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Article
-        
-        fields = (
-            'text',
-            'tags',
-            'image',
-        )
         CATEGORY = (
             ('国語', '国語'),
             ('数学', '数学'),
@@ -31,4 +25,9 @@ class PostForm(forms.ModelForm):
         tags = forms.fields.ChoiceField(
             choices=CATEGORY,
             required=True,
+        )
+        fields = (
+            'text',
+            'tags',
+            'image',
         )
