@@ -20,3 +20,15 @@ class PostForm(forms.ModelForm):
             'tags',
             'image',
         )
+        CATEGORY = (
+            ('国語', '国語'),
+            ('数学', '数学'),
+            ('英語', '英語'),
+            ('理科', '理科'),
+            ('社会', '社会'),
+            ('その他', 'その他'),
+        )   
+        tags = forms.fields.ChoiceField(
+            choices=CATEGORY,
+            required=True,
+        )
