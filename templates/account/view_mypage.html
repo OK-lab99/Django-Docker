@@ -14,9 +14,6 @@
             <div class="card mb-2">
                 {% if user.profile.image %}
                 <img src="{{ user.profile.image.url }}" alt="{{ user.profile.image.name }}" class="img-fluid">
-                {% else %}
-                <img src="{% static 'account/person.jpg' %}" 
-                class="rounded-circle img-fluid">
                 {% endif %}
                 <p class="small text-muted text-center">
                     {% if user.profile.username %}{{ user.profile.username }}
