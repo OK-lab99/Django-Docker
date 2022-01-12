@@ -31,5 +31,3 @@ class ProfileForm(forms.ModelForm):
             'age',
             'text',
         )
-         
-

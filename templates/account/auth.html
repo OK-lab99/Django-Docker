@@ -1,6 +1,10 @@
 {% extends 'account/base_auth.html' %}
  
 {% block content %}
+<p>
+    request.userは {{ request.user }} <br>
+    request.user.is_authenticatedは{{ request.user.is_authenticated }}
+</p>
 <div class="container ">
     <div class="row">
         <div class="col-lg-3 m-auto ">
@@ -21,8 +25,7 @@
                 </div>
  
                 <div class="form-label-group my-3">
-                    <input type="email" id="id_email" name="{% if 'login' in request.path %}
-                    username{% elif 'signup' in request.path %}email{% endif %}" class="form-control" placeholder="Email address" required autofocus>
+                    <input type="email" id="id_email" name="{% if 'login' in request.path %}username{% elif 'signup' in request.path %}email{% endif %}" class="form-control" placeholder="Email address" required autofocus>
                 </div>
  
                 <div class="form-label-group my-3">

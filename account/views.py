@@ -10,7 +10,7 @@ from django.core.mail import send_mail
 import os
 
 def index(request):
-    ranks = Article.objects.order_by('-count')[:2]
+    ranks = Article.objects.order_by('-count')[:3]
     objs = Article.objects.all()
     context = {
         'articles' : objs, 
@@ -84,5 +84,3 @@ def contact(request):
 def explain(request):
     context = {}
     return render(request, 'account/explain.html', context)
-
-
