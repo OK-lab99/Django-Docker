@@ -3,23 +3,14 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.conf import settings
 from cloudinary.models import CloudinaryField
-'''
-CATEGORY = (('国語', '国語'),
+
+class Tag(models.Model):
+    CATEGORY = (('国語', '国語'),
         ('数学', '数学'),
         ('英語', '英語'),
         ('理科', '理科'),
         ('社会', '社会'),
         ('その他', 'その他'),
-    )
-'''
-class Tag(models.Model):
-    CATEGORY = (
-        ('1', '国語'),
-        ('2', '数学'),
-        ('3', '英語'),
-        ('4', '理科'),
-        ('5', '社会'),
-        ('6', 'その他'),
     )
     name = models.CharField(max_length=10, choices=CATEGORY)
     

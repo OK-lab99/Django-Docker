@@ -65,6 +65,7 @@ def posts(request):
             question = form.save(commit=False)
             question.user = request.user
             question.save()
+            form.save_m2m() 
             messages.success(request, '質問できました')
             return redirect('/')
     else:
