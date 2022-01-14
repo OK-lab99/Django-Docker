@@ -61,10 +61,13 @@ def mypage(request):
 @login_required
 def view_mypage(request):
     profile = Profile.objects.all()
+    articles = Article.objects.filter(user_id=request.user.pk)
     context = {
-        'profile':profile
+        'profile':profile,
+        'articles':articles
     }
-    return render(request, 'account/view_mypage.html', context)
+    
+    return render(request, 'account/view.html', context)
 
 def contact(request):
     context = {}

@@ -20,7 +20,7 @@
                 {% if article.image %}
                 <img src="{{ article.image.url }}" alt="{{ article.image.name }}" class="img-fluid">
                 {% else %}
-                <img src="{% static 'account/default.jpg' %}" class="img-fluid">
+                
                 {% endif %} 
             <p class="small text-muted text-right">{{article.created_at}} </p>
             

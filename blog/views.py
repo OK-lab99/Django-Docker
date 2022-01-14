@@ -13,7 +13,7 @@ def index(request):
         'page_obj' : paginator.get_page(page_number),
         'page_number' : page_number,
     }
-    return render(request,'blog/blog1.html', context)
+    return render(request,'blog/blogs.html', context)
 
 
 def article(request, pk):
@@ -55,7 +55,7 @@ def tags(request, name):
         'page_number' : page_number,
     }
     
-    return render(request, 'blog/blog1.html', context)
+    return render(request, 'blog/blogs.html', context)
 
 def posts(request):
     context = {}
