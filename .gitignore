@@ -1,5 +1,5 @@
 __pycache__
 local_settings.py
 staticfiles
-secrets_dev.yaml
-secrets.yaml
+secrets/
+.DS_Store
