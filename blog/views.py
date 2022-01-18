@@ -4,6 +4,10 @@ from django.core.paginator import Paginator
 from blog.forms import CommentForm, PostForm
 from django.contrib import messages
 
+from rest_framework import generics
+from django.views import generic
+from .serializers import ArticleSerializer, CommentSerializer
+
 def index(request):
     objs = Article.objects.all()
     paginator = Paginator(objs,3)
@@ -32,7 +36,11 @@ def article(request, pk):
         elif request.POST.get('like_count', None):
             obj.count += 1
             obj.save()
-    
+        
+        elif request.POST.get('yes_or_no', None):
+            obj.able = True
+            obj.save()
+            
     else:
         form = CommentForm()
     comments = Comment.objects.filter(article=obj)
@@ -73,3 +81,12 @@ def posts(request):
     context['form'] = form
    
     return render(request, 'blog/post.html', context)
+
+
+class ArticleList(generics.ListAPIView):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+
+class CommentList(generics.ListAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer

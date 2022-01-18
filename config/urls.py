@@ -16,6 +16,8 @@ urlpatterns = [
     path('view/',views.view_mypage),
     path('contact/',views.contact),
     path('explain/',views.explain),
+    path('api_blog/', include('blog.api_urls')),
+    path('api_account/', include('account.api_urls')),
 ]
 
 if settings.DEBUG:

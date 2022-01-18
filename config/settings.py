@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'rest_framework',
     'account',
     'blog',
 ]
@@ -206,3 +207,11 @@ if not DEBUG:
 
 db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
 DATABASES['default'].update(db_from_env)
+
+if DEBUG:
+    INSTALLED_APPS += ['corsheaders']
+    MIDDLEWARE = ['corsheaders.middleware.CorsMiddleware'] + MIDDLEWARE
+    CORS_ORIGIN_WHITELIST = (
+        'http://127.0.0.1:8080',
+        'http://localhost:8080',
+    )
