@@ -31,12 +31,7 @@ def article(request, pk):
         
         elif request.POST.get('like_count', None):
             obj.count += 1
-            obj.save()
-        
-        elif request.POST.get('yes_or_no', None):
-            obj.able = True
-            obj.save()
-            
+            obj.save()           
     else:
         form = CommentForm()
     comments = Comment.objects.filter(article=obj)
