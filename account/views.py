@@ -9,10 +9,6 @@ from django.contrib.auth import login
 from django.core.mail import send_mail
 import os
 
-from rest_framework import generics
-from django.views import generic
-from .serializers import ProfileSerializer
-
 def index(request):
     ranks = Article.objects.order_by('-count')[:2]
     objs = Article.objects.all()
@@ -91,8 +87,3 @@ def contact(request):
 def explain(request):
     context = {}
     return render(request, 'account/explain.html', context)
-
-
-class ProfileList(generics.ListAPIView):
-    queryset = Profile.objects.all()
-    serializer_class = ProfileSerializer
